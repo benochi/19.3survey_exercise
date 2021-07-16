@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+<!--"When the user goes to the root route, render a page that shows the user the title of the survey,
+ the instructions, and a button to start the survey"-->
+{% block content %}
+<!--shows the user the title of the survey-->
+<h1>{{ survey.title }}</h1>
+<!--shows user the instructions-->-->
+<p>{{ survey.instructions }}</p>
+<!--button for "/questions/0" will redirect from "/start"-->
+<form action="/start" method="POST">
+    <button>Start survey</button>
+</form>
+{% endblock %}
