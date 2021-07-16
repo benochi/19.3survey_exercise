@@ -1,0 +1,18 @@
+{% extends base.html %} 
+{% block content %} 
+<!--When the user arrives at one of these pages, it should show a form asking the current question,
+and listing the choices as radio buttons. Answering the question should fire off a
+POST request to /answer with the answer the user selected(we’ll handle this route next).-->
+<h1>{{ question.question }}</h1>
+<!--show a form asking the current question method="POST" to /answer-->
+<form action="/answer" method="POST">    
+    {% for choice in question.choices %}
+    <p> <!--listing the choices @surveys.py as radio buttons-->
+        <input type="radio" value="{{ choice }}" name="answer">
+        {{ choice }} 
+    </p>
+    {% endfor %}
+    </select>
+    <button>Next</button>
+</form>
+{% endblock %}
