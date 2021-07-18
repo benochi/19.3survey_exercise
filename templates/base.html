@@ -11,7 +11,7 @@
     <!--for flash-->
     {% for message in get_flashed_message() %} 
         <p>{{ message }}</p>
-    (% endfor %})
+    {% endfor %}
     <!--add block for templating-->
     {% block content %}
     {% endblock %}
