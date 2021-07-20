@@ -40,6 +40,8 @@ def question(question_id):
     """Displays question based off ID"""
     responses = session.get[RESPONSES_LIST]
     
+    if (responses is None):
+        return redirect("/")
     """Once they’ve answered all of the questions, trying to access any of the question pages should redirect them to the 
     thank you page."""
     if (len(responses) == len(survey.questions)):
@@ -53,8 +55,6 @@ def question(question_id):
         flash(f"Invalid question: {question_id}.")
         return redirect(f"/questions/{len(responses)}")
 
-    if (responses is None):
-        return redirect("/")
 
 
     question = survey.questions[question_id]
